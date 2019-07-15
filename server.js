@@ -2,11 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
-app.use(cors());
+
+
 app.use(bodyParser.json());
-app.listen(3001, () => {
-  console.log("My app is running here!");
-});
+app.use(cors());
+
 app.get("/", (req, res) => {
   res.send("Welcome!");
 });
@@ -41,6 +41,7 @@ app.put("/albumsB", (req, res) => {
   res.send(albumsData);
 });
 
+
 let albumsData = [
   {
     albumId: "10",
@@ -65,3 +66,6 @@ let albumsData = [
       "https://www.youtube.com/embed/ViwtNLUqkMY?rel=0&amp;controls=0&amp;showinfo=0"
   }
 ];
+app.listen(3001, () => {
+  console.log("My app is running here!");
+});
